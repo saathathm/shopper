@@ -1,0 +1,13 @@
+npm install react-router-dom
+
+deleted header in app.js and i removed imported logo on top
+
+changed title name in index.html in public folder
+
+created 3 folders in src are components , pages and context
+
+created 2 folders in components folder are Assets and Navbar
+
+created navbar.jsx and navbar.css files in navbar folder
+
+i converted navbar.jsx into rafc by typing
