@@ -8,7 +8,6 @@ const getAllProducts = (req, res, next) => {
         .catch((error) => {
             next(error);
         })
-    // checkgit
 }
 
 const getRandomProducts = async (req, res, next) => {
