@@ -8,36 +8,37 @@ const getAllProducts = (req, res, next) => {
         .catch((error) => {
             next(error);
         })
+    // checkgit
 }
 
 const getRandomProducts = async (req, res, next) => {
     const count = 4;
     const data = await getRandomResults(count)
     res.send(data);
-    
+
 }
 
 const getWomenPopular = async (req, res, next) => {
     const count = 4;
     const data = await getRandomResults(count, "women");
     res.send(data);
-    
+
 }
 const getRelatedProduct = async (req, res, next) => {
     const category = req.params.productCategory
     const count = 4;
     const data = await getRandomResults(count, category);
     res.send(data);
-    
+
 }
 
-async function getRandomResults(count,category=false) {
+async function getRandomResults(count, category = false) {
     try {
         // Get the total count of documents in the collection
         const totalDocuments = await Product.find(
             category ?
                 { category: category } : null
-            ).countDocuments();
+        ).countDocuments();
 
         // Generate random indexes to fetch random documents
         const randomIndexes = generateRandomIndexes(count, totalDocuments);
@@ -46,7 +47,7 @@ async function getRandomResults(count,category=false) {
         const randomDataPromises = randomIndexes.map(async (index) => {
             return await Product.findOne(
                 category ?
-                { category: category } : null
+                    { category: category } : null
             ).skip(index);
         });
 
@@ -55,7 +56,7 @@ async function getRandomResults(count,category=false) {
 
         return randomData;
 
-        
+
     } catch (error) {
         console.error('Error fetching random data:', error);
         throw error;
@@ -71,7 +72,7 @@ async function getRandomResults(count,category=false) {
         }
         return indexes;
     }
-    
+
 }
 
 
