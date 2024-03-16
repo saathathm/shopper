@@ -8,12 +8,12 @@ import { ShopContext } from '../../Context/ShopContext'
 
 export const Navbar = () => {
   const [menu, setMenu] = useState('shop')
-  const {getTotalCartItems} = useContext(ShopContext);
+  const { getTotalCartItems } = useContext(ShopContext);
   return (
     <div className='navbar'>
       <div className="nav-logo">
         <img src={logo} alt="" />
-        <p>SHOPPER</p>
+        <p> SHOPPER</p>
       </div>
       <ul className="nav-menu">
         <li onClick={() => { setMenu('shop') }}> <Link to={'/'} style={{ textDecoration: 'none' }}>Shop</Link> {menu === 'shop' ? <hr /> : <></>}</li>
