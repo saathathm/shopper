@@ -13,7 +13,7 @@ export const Navbar = () => {
     <div className='navbar'>
       <div className="nav-logo">
         <img src={logo} alt="" />
-        <p> SHOPPER</p>
+        <p> ESSUS FASHION</p>
       </div>
       <ul className="nav-menu">
         <li onClick={() => { setMenu('shop') }}> <Link to={'/'} style={{ textDecoration: 'none' }}>Shop</Link> {menu === 'shop' ? <hr /> : <></>}</li>
