@@ -3,7 +3,8 @@ import './Item.css'
 import { Link } from 'react-router-dom'
 
 export const Item = (props) => {
-    const imagePath = "http://localhost:3000/Assets/"+ props.image;
+    const baseURL = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/Assets/`;
+    const imagePath = `${baseURL}${props.image}`;
     return (
         <div className='item'>
             <Link to={`/product/${props.id}`}><img onClick={window.scrollTo(0,0)} src={imagePath} alt="" /></Link>
