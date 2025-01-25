@@ -8,7 +8,12 @@ dotenv.config({ path: './config/config.env' });
 const cors = require('cors');
 
 //middlewares
-app.use(cors());
+app.use(express.json());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use('/api/products', products)
 
 
