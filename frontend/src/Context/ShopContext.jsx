@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import useFetch from "../Components/useFetch/useFetch";
+import { BASE_URL } from "./constants.js";
 
 export const ShopContext = createContext(null);
 
@@ -8,10 +9,10 @@ export const ShopContext = createContext(null);
 
 const ShopContextProvider = (props) => {
     const [gotData, setGotData] = useState(['women']);
-    const get_related_products_link = "http://127.0.0.1:8800/api/products/related/" + gotData[0] + "/" + gotData[1];
+    const get_related_products_link = `${BASE_URL}/api/products/related/` + gotData[0] + "/" + gotData[1];
     const get_related_products = useFetch(get_related_products_link);
-    const get_women_popular = useFetch("http://127.0.0.1:8800/api/products/women-popular");
-    const { data, loading } = useFetch("http://127.0.0.1:8800/api/products");
+    const get_women_popular = useFetch(`${BASE_URL}/api/products/women-popular`);
+    const { data, loading } = useFetch(`${BASE_URL}/api/products`);
 
 
     const data2 = [

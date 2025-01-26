@@ -1,11 +1,12 @@
 import { createContext } from "react";
+import { BASE_URL } from "./constants.js";
 import useFetch from "../Components/useFetch/useFetch";
 
 
 export const ShopRandomProductsContext = createContext(null);
 
 const ShopRandomProductsContextProvider = (props) => {
-    const { data, loading } = useFetch("http://127.0.0.1:8800/api/products/randomly");
+    const { data, loading } = useFetch(`${BASE_URL}/api/products/randomly`);
 
     const contextValue = { loading, data };
 
